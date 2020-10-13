@@ -19,4 +19,5 @@ pipeline {
     failure {
         office365ConnectorSend message: "Delete Service in"
     }
+  }
 }
