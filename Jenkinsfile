@@ -14,7 +14,7 @@ pipeline {
         cleanup{
             script{
                 slackNotify{
-                    slackNotifyChannel="#alert-testing"
+                    slackNotifyChannel="#project"
                     slackNotifyBranches=[]
                 }
             }
