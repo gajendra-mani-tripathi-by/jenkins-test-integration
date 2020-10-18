@@ -9,7 +9,7 @@ pipeline {
         }
     }
   post {
-    success {
+    always {
       script {
         slackNotify {
           slackNotifyChannel='@Gajendra Mani Tripathi '
