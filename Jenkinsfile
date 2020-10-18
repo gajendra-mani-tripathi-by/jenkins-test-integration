@@ -14,7 +14,7 @@ pipeline {
         cleanup{
             script{
                 slackNotify{
-                    slackNotifyChannel="#dataservices_internal"
+                    slackNotifyChannel="#alert-testing"
                     slackNotifyBranches=[]
                 }
             }
