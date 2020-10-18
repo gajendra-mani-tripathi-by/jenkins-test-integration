@@ -4,17 +4,20 @@ pipeline {
         stage('print_hello') {
             steps {
                 echo 'Hello world!'
-                
             }
         }
     }
-  post {
-    always {
-      script {
-        slackNotify {
-          slackNotifyChannel='@project'
+   post{
+        success{
+    	    script{ currentBuild.result = 'SUCCESS' }
         }
-     }
+        cleanup{
+            script{
+                slackNotify{
+                    slackNotifyChannel="#dataservices_internal"
+                    slackNotifyBranches=[]
+                }
+            }
+        }
     }
-  }
 }
