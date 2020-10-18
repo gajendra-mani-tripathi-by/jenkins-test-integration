@@ -4,7 +4,7 @@ pipeline {
         stage('print_hello') {
             steps {
                 echo 'Hello world!'
-                exit(1)
+                
             }
         }
     }
