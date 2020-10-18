@@ -12,7 +12,7 @@ pipeline {
     always {
       script {
         slackNotify {
-          slackNotifyChannel='@Gajendra Mani Tripathi '
+          slackNotifyChannel='#project'
         }
      }
     }
