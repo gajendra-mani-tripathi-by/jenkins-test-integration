@@ -28,7 +28,7 @@ pipeline {
             sh "curl -H \'Content-Type: application/json\' -d \'{\"@type\": \"MessageCard\", \"title\": \"Jenkins Build Status ==> ${JOB_NAME}\", \"text\": \"${message}\" }\' ${url}"
         }
         success {
-            sh "curl -H \'Content-Type: application/json\' -d \'{\"@type\": \"MessageCard\", \"title\": \"Jenkins Build Status\", \"text\": \"${message}\" }\' ${url}"
+            sh "curl -H \'Content-Type: application/json\' -d \'{\"@type\": \"MessageCard\", \"title\": \"Jenkins Build Status ==> ${JOB_NAME}\", \"text\": \"${message}\" }\' ${url}"
         }
     }
 }
