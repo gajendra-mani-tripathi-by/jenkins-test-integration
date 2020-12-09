@@ -19,15 +19,9 @@ pipeline {
                 cause = newobj.getBuildCauseMessages()
                 changes = newobj.getChanges()
                 message = "${label} - [${BUILD_URL}](${BUILD_URL}) \n\n${testres}\n\n${coverageres}\n\n${cause}\n\n${changes}"
-                // if (currentBuild.result == 'SUCCESS') {
-                //     sh "curl -H \'Content-Type: application/json\' -d \'{\"@type\": \"MessageCard\", \"title\": \"Jenkins Build Status\", \"text\": \"${message}\" }\' ${url}"
-                // }
             }
         }
-        failure {
-            sh "curl -H \'Content-Type: application/json\' -d \'{\"@type\": \"MessageCard\", \"title\": \"Jenkins Build Status ==> ${JOB_NAME}\", \"text\": \"${message}\" }\' ${url}"
-        }
-        success {
+        changed {
             sh "curl -H \'Content-Type: application/json\' -d \'{\"@type\": \"MessageCard\", \"title\": \"Jenkins Build Status ==> ${JOB_NAME}\", \"text\": \"${message}\" }\' ${url}"
         }
     }
